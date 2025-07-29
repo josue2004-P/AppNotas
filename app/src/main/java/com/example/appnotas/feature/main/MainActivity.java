@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -27,14 +28,16 @@ public class MainActivity extends AppCompatActivity {
 
     private NotaViewModel viewModel;
     private NotaAdapter adapter;
-
+    private TextView textClima;
     private static final String API_KEY = "c34d77e6aa24638f3b5cf283f7435da1";
-    private static final String CITY = "Mexico City";
+    private static final String CITY = "Veracruz";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textClima = findViewById(R.id.textClima);
 
         //API CLIMA
         WeatherRepository repository = new WeatherRepository();
@@ -44,12 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 String description = response.weather.get(0).description;
                 float temperature = response.main.temp;
 
-                Log.d("Clima", "Ciudad: " + CITY + ", Clima: " + description + ", Temp: " + temperature + "°C");
-                // Aquí puedes actualizar tu UI con los datos
+                String clima = "Ciudad: " + CITY + "\nClima: " + description + "\nTemperatura: " + temperature + "°C";
+
+                // Mostrar en la UI (asegúrate de hacerlo en el hilo principal)
+                runOnUiThread(() -> textClima.setText(clima));
             }
 
             @Override
             public void onFailure(Throwable t) {
+                runOnUiThread(() -> textClima.setText("Error al obtener el clima"));
                 Log.e("Clima", "Error al obtener clima: " + t.getMessage());
             }
         });

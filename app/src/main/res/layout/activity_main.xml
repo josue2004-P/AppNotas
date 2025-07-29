@@ -19,12 +19,26 @@
         android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="4dp" />
+
+    <!-- Clima -->
+    <TextView
+        android:id="@+id/textClima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tituloApp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:text="Cargando clima..."
+        android:textColor="@color/notalumen_white"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="4dp" />
 
     <!-- Lista de notas -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerNotas"
-        android:layout_below="@id/tituloApp"
+        android:layout_below="@id/textClima"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
@@ -44,4 +58,5 @@
         app:backgroundTint="@color/notalumen_blue"
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="@color/notalumen_white" />
+
 </RelativeLayout>
