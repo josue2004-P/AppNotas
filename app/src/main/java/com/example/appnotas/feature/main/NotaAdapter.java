@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,15 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         notifyDataSetChanged();
     }
 
+    public Nota getNotaEnPosicion(int posicion) {
+        return listaNotas.get(posicion);
+    }
+
+    public void eliminarNota(int posicion) {
+        listaNotas.remove(posicion);
+        notifyItemRemoved(posicion);
+    }
+
     @NonNull
     @Override
     public NotaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,9 +43,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
     @Override
     public void onBindViewHolder(@NonNull NotaViewHolder holder, int position) {
         Nota nota = listaNotas.get(position);
-        holder.titulo.setText(nota.getTitulo());
-        holder.contenido.setText(nota.getContenido());
-        holder.fecha.setText(nota.getFecha());
+        holder.bind(nota);
     }
 
     @Override
@@ -43,7 +51,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         return listaNotas.size();
     }
 
-    static class NotaViewHolder extends RecyclerView.ViewHolder {
+    class NotaViewHolder extends RecyclerView.ViewHolder {
         TextView titulo, contenido, fecha;
 
         public NotaViewHolder(@NonNull View itemView) {
@@ -51,6 +59,16 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
             titulo = itemView.findViewById(R.id.textTitulo);
             contenido = itemView.findViewById(R.id.textContenido);
             fecha = itemView.findViewById(R.id.textFecha);
+        }
+
+        public void bind(Nota nota) {
+            titulo.setText(nota.getTitulo());
+            contenido.setText(nota.getContenido());
+            fecha.setText(nota.getFecha());
+
+            itemView.setOnClickListener(v -> {
+                Toast.makeText(v.getContext(), "ID: " + nota.getId(), Toast.LENGTH_SHORT).show();
+            });
         }
     }
 }

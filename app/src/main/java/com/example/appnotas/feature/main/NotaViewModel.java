@@ -26,8 +26,8 @@ public class NotaViewModel extends AndroidViewModel {
         repository.insertar(nota);
     }
 
-    public void eliminar(Nota nota) {
-        repository.eliminar(nota);
+    public void eliminarNota(Nota nota) {
+        repository.eliminar(nota); // o el método que estés usando
     }
 
     public LiveData<List<Nota>> obtenerTodas() {
