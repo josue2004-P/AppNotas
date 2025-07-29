@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,17 +19,40 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appnotas.R;
 import com.example.appnotas.data.model.Nota;
+import com.example.appnotas.data.weather.WeatherResponse;
 import com.example.appnotas.feature.add.AddNoteActivity;
+import com.example.appnotas.repository.WeatherRepository;
 
 public class MainActivity extends AppCompatActivity {
 
     private NotaViewModel viewModel;
     private NotaAdapter adapter;
 
+    private static final String API_KEY = "c34d77e6aa24638f3b5cf283f7435da1";
+    private static final String CITY = "Mexico City";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //API CLIMA
+        WeatherRepository repository = new WeatherRepository();
+        repository.getWeather(CITY, API_KEY, new WeatherRepository.WeatherCallback() {
+            @Override
+            public void onSuccess(WeatherResponse response) {
+                String description = response.weather.get(0).description;
+                float temperature = response.main.temp;
+
+                Log.d("Clima", "Ciudad: " + CITY + ", Clima: " + description + ", Temp: " + temperature + "°C");
+                // Aquí puedes actualizar tu UI con los datos
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.e("Clima", "Error al obtener clima: " + t.getMessage());
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerNotas);
         adapter = new NotaAdapter();
