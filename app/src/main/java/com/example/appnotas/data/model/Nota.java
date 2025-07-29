@@ -12,6 +12,9 @@ public class Nota {
     @ColumnInfo(name = "titulo")
     private String titulo;
 
+    @ColumnInfo(name = "fecha")
+    private String fecha;
+
     @ColumnInfo(name = "contenido")
     private  String contenido;
 
@@ -24,4 +27,12 @@ public class Nota {
 
     public String getContenido() { return contenido; }
     public void setContenido(String contenido) { this.contenido = contenido; }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 }

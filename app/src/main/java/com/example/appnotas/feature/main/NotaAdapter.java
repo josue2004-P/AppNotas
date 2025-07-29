@@ -1,4 +1,4 @@
-package com.example.appnotas.adapter;
+package com.example.appnotas.feature.main;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder> {
-
     private List<Nota> listaNotas = new ArrayList<>();
 
     public void setNotas(List<Nota> notas) {
@@ -36,6 +35,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         Nota nota = listaNotas.get(position);
         holder.titulo.setText(nota.getTitulo());
         holder.contenido.setText(nota.getContenido());
+        holder.fecha.setText(nota.getFecha());
     }
 
     @Override
@@ -44,12 +44,13 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
     }
 
     static class NotaViewHolder extends RecyclerView.ViewHolder {
-        TextView titulo, contenido;
+        TextView titulo, contenido, fecha;
 
         public NotaViewHolder(@NonNull View itemView) {
             super(itemView);
             titulo = itemView.findViewById(R.id.textTitulo);
             contenido = itemView.findViewById(R.id.textContenido);
+            fecha = itemView.findViewById(R.id.textFecha);
         }
     }
 }

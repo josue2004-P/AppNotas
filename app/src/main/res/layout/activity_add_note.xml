@@ -1,7 +1,8 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/backgroundColor"
+    android:background="@color/notalumen_black"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -13,34 +14,55 @@
         <TextView
             android:text="Agregar Nota"
             android:textSize="22sp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/notalumen_blue"
             android:textStyle="bold"
             android:layout_marginBottom="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <!-- Título -->
         <EditText
             android:id="@+id/editTitulo"
             android:hint="Título"
-            android:textColorHint="@color/textSecondary"
-            android:backgroundTint="@color/colorPrimary"
-            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/notalumen_gray"
+            android:textColor="@color/notalumen_white"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"/>
 
+        <!-- Contenido -->
         <EditText
             android:id="@+id/editContenido"
             android:hint="Contenido de la nota"
-            android:textColorHint="@color/textSecondary"
-            android:textColor="@color/textPrimary"
-            android:backgroundTint="@color/colorPrimary"
+            android:textColorHint="@color/notalumen_gray"
+            android:textColor="@color/notalumen_white"
+            android:background="@drawable/edittext_background"
             android:layout_marginTop="16dp"
+            android:padding="12dp"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="top"
             android:inputType="textMultiLine"/>
 
+        <!-- Fecha -->
+        <TextView
+            android:id="@+id/textFecha"
+            android:layout_marginTop="16dp"
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"
+            android:text="Selecciona una fecha"
+            android:textColor="@color/notalumen_white"
+            android:textSize="16sp"
+            android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Botones -->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -51,7 +73,7 @@
             <Button
                 android:id="@+id/btnCancelar"
                 android:text="Cancelar"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/notalumen_blue"
                 android:backgroundTint="@android:color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -59,8 +81,8 @@
             <Button
                 android:id="@+id/btnGuardar"
                 android:text="Guardar"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/notalumen_white"
+                android:backgroundTint="@color/notalumen_blue"
                 android:layout_marginStart="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

@@ -6,8 +6,8 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.example.appnotas.data.model.Nota;
-import com.example.appnotas.data.model.NotaDao;
-import com.example.appnotas.data.model.NotaDatabase;
+import com.example.appnotas.data.db.NotaDao;
+import com.example.appnotas.data.db.NotaDatabase;
 
 import java.util.List;
 

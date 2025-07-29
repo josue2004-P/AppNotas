@@ -1,4 +1,4 @@
-package com.example.appnotas.viewmodel;
+package com.example.appnotas.feature.main;
 
 import android.app.Application;
 

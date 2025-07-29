@@ -1,20 +1,15 @@
-package com.example.appnotas;
+package com.example.appnotas.feature.main;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appnotas.adapter.NotaAdapter;
-import com.example.appnotas.ui.AddNoteActivity;
-import com.example.appnotas.viewmodel.NotaViewModel;
+import com.example.appnotas.R;
+import com.example.appnotas.feature.add.AddNoteActivity;
 
 public class MainActivity extends AppCompatActivity {
 

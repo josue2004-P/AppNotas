@@ -1,8 +1,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundColor"
+    android:background="@color/notalumen_black"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
     <!-- Título -->
@@ -11,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Mis Notas"
-        android:textSize="24sp"
-        android:textColor="@color/colorPrimary"
+        android:text="NotaLumen"
+        android:textSize="26sp"
+        android:textColor="@color/notalumen_blue"
         android:textStyle="bold"
-        android:layout_margin="16dp"
+        android:gravity="center"
         android:layout_alignParentTop="true"
-        android:fitsSystemWindows="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
 
     <!-- Lista de notas -->
     <androidx.recyclerview.widget.RecyclerView
@@ -28,7 +29,8 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:layout_marginBottom="72dp" />
 
     <!-- Botón flotante -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -37,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
+        android:layout_margin="20dp"
         android:contentDescription="Agregar nota"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/notalumen_blue"
         app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@android:color/white" />
+        app:tint="@color/notalumen_white" />
 </RelativeLayout>
